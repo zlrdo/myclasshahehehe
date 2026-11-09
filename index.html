@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<!--
+  나의 학급일지 — 감싸는 페이지 (GitHub Pages에 올리는 파일)
+  ★ 아래 WEBAPP_URL 에 Apps Script 웹앱 주소(…/exec)를 붙여넣어 주세요.
+-->
+<script>
+  const WEBAPP_URL = '여기에_웹앱_주소를_붙여넣어요';
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>나의 학급일지</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="학급일지">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#FFF8F0">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="manifest" href="manifest.json">
+<style>
+  html,body{margin:0;height:100%;background:#FFF8F0;overflow:hidden}
+  iframe{position:fixed;left:0;right:0;bottom:0;top:env(safe-area-inset-top);width:100%;height:calc(100% - env(safe-area-inset-top));border:0;background:#FFF8F0}
+  .msg{font-family:-apple-system,'Apple SD Gothic Neo','Malgun Gothic',sans-serif;color:#5B4636;max-width:420px;margin:18vh auto;padding:24px;text-align:center;line-height:1.7}
+  .msg img{width:96px;height:96px;border-radius:24px}
+</style>
+</head>
+<body>
+<script>
+  if (!/^https:\/\/script\.google\.com\/.+\/exec/.test(WEBAPP_URL)) {
+    document.body.innerHTML = '<div class="msg"><img src="icon-180.png" alt=""><h2>거의 다 됐어요!</h2>index.html 맨 위의 <b>WEBAPP_URL</b>에<br>Apps Script 웹앱 주소(…/exec)를 붙여넣어 주세요.</div>';
+  } else {
+    const f = document.createElement('iframe');
+    f.src = WEBAPP_URL;
+    f.allow = 'clipboard-write';
+    f.title = '나의 학급일지';
+    document.body.appendChild(f);
+  }
+</script>
+</body>
+</html>
